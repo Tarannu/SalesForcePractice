@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="LdsCreateRecord" icon-name="standard:record">
+    <lightning-card title="Account Entry" icon-name="standard:record">
         <div class="slds-var-m-around_medium">
             <lightning-input
                 label="Id"
@@ -12,10 +12,11 @@
                 onchange={handleNameChange}
                 class="slds-var-m-bottom_x-small"
             ></lightning-input>
+
             <lightning-button
-                label="Create Account"
+                label="Create Entry"
                 variant="brand"
-                onclick={createAccount}
+                onclick={createEntry}
             ></lightning-button>
         </div>
 

@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Inserting to Price Shopping Record"> 
+        <div class="slds-wrap slads-grid">
+            <div class="slds-col slds-size-6-of-12 slds-p-horizontal---small slds-m-bottom--medium">
+                <p>
+                    <lightning-input label="Name" type="text" value={scoreObjName} name="scoreName" onchange={scoreHandleChange}></lightning-input>
+                </p>
+            </div>
+            <br/>  <br/>
+            <div class="slds-text-align--center slds-m-top--medium" style="text-align:center; width:40px; margin:auto;">
+                <lightning-button type="brand" label="Submit" variant="brand" size="small" onclick={submitAction}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+    
+</template>

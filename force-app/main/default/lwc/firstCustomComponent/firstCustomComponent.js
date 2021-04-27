@@ -2,8 +2,9 @@ import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { createRecord } from 'lightning/uiRecordApi';
 
-import ACCOUNT_OBJECT from '@salesforce/schema/Account';
+import PRICE_OBJECT from '@salesforce/schema/Account';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
+
 
 export default class FirstCustomComponent extends LightningElement {
     accountId;
@@ -15,17 +16,17 @@ export default class FirstCustomComponent extends LightningElement {
         this.name = event.target.value;
     }
 
-    createAccount() {
+    createEntry() {
         const fields = {};
         fields[NAME_FIELD.fieldApiName] = this.name;
-        const recordInput = { apiName: ACCOUNT_OBJECT.objectApiName, fields };
+        const recordInput = { apiName: PRICE_OBJECT.objectApiName, fields };
         createRecord(recordInput)
             .then((account) => {
                 this.accountId = account.id;
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Success',
-                        message: 'Account created',
+                        message: 'Entry created',
                         variant: 'success'
                     })
                 );
@@ -34,7 +35,7 @@ export default class FirstCustomComponent extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error creating record',
-                        message: '',
+                        message: 'Error creating record',
                         variant: 'error'
                     })
                 );
